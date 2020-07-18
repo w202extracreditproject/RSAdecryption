@@ -95,7 +95,8 @@ def encrypt(pk, plaintext):
 def decrypt(pk, ciphertext):
     #Decrypts the ciphertexts
     key, n = pk
-    #Generates plaintext based on the ciphertext and key using a^b mod m
+    #Creates plaintext based on the ciphertext 
+    #Ciphertext created using a^b mod m
     plain = [chr((char ** key) % n) for char in ciphertext]
     #Returns an array of bits
     return ''.join(plain)
