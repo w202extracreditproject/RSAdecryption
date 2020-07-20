@@ -1,6 +1,7 @@
 from random import randint
 from sys import getsizeof
 import math
+import sage.all
 
 def pow_mod(x,a,n):
 	result = 1
@@ -142,6 +143,8 @@ def decrypt(private_key, ciphertext):
 	print("DECRYPTED MESSAGE: " + final_message)
 	return final_message
 
+def factorize(n):
+	print sage.all.factor(n)
 
 if __name__ == '__main__':
 	#key_setup()
@@ -151,3 +154,5 @@ if __name__ == '__main__':
 	ciphertext = encrypt(public_key,"Hello World")
 	plaintext = decrypt(private_key,ciphertext)
 	print plaintext
+	factorize(182191144722964401241857980467499740913)
+	print "Factorization complete"
