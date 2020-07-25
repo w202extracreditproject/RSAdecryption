@@ -69,7 +69,8 @@ def factorize(n):
 	print "********* Factoring number ********* ",n
 	start_time = time.time()
 	f = sage.all.factor(n)
-	print ("Factors of ",n," are ", f, "took time --- %s seconds" % (time.time() - start_time))
+	t = (time.time() - start_time)
+	print "Time taken= "'\033[94m',t, "seconds "'\033[0m'", factors = ", f
 	#print("********* Factoring time --- %s seconds ---" % (time.time() - start_time))
 
 if __name__ == '__main__':
@@ -86,5 +87,6 @@ if __name__ == '__main__':
 	print "*********  Start factoring Numbers  ********"
 	for n in numbers:
 		factorize(n)
-	
-	print "Factorization complete"
+
+	print ""
+	print "### Factorization complete ###"
