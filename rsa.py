@@ -6,6 +6,7 @@
 
 #python library that generates pseudo-random numbers to generate key pairs
 import random
+import time
 
 #Euclid's algorithm will be used later to ensure that e and phi(n) are comprime
 #and to generate private keys
@@ -112,8 +113,12 @@ if __name__ == '__main__':
     public, private = generate_keypair(p, q)
     print "Your public key: ", public ," and your private key: ", private
     message = raw_input("Enter a message to encrypt using your private key: ")
-    encrypted_msg = encrypt(private, message)
+    start_time = time.time()
+    encrypted_msg = encrypt(public, message)
+    print("Encryption time --- %s seconds ---" % (time.time() - start_time))
     print "Your encrypted message is: "
     print ''.join(map(lambda x: str(x), encrypted_msg))
     print "Decrypting message with your public key: ", public
-    print decrypt(public, encrypted_msg)
+    start_time = time.time()
+    print decrypt(private, encrypted_msg)
+    print("Decryption time --- %s seconds ---" % (time.time() - start_time))
